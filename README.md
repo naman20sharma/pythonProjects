@@ -16,3 +16,4 @@ This repository is a collection of Python projects ranging from beginner to adva
 You'll find a diverse range of projects here, from games to some intuitive real-world problems including but not limited to:
 
 - **Quiz Game**: A short quiz game related to general knowledge in Computers.
+- **Guess The Number**: A short game in which the user tries to guess a number within a chosen range.
