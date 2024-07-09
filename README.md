@@ -17,4 +17,4 @@ You'll find a diverse range of projects here, from games to some intuitive real-
 
 - **Quiz Game**: A short quiz game related to general knowledge in Computers.
 - **Guess The Number**: A short game in which the user tries to guess a number within a chosen range.
-- **Rock, Paper, Scissor**: Conventional rock, paper, scissor game where plays with computer.
+- **Rock, Paper, Scissor**: Conventional rock, paper, scissor game where user plays with computer.
