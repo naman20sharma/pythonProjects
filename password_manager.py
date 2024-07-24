@@ -1,20 +1,23 @@
 import os
 
 from cryptography.fernet import Fernet
-
-filename = 'password.txt'
-# master password will be used for encryption
-master_pwd = input("What is the master password? ")
-
-
+'''
 def write_key():
     key = Fernet.generate_key()
     with open("private.key", "wb+") as encrypt_file:
         encrypt_file.write(key)
+'''
 
 
 def load_key():
-    file = open("private.key")
+    return open("private.key", "rb").read()
+
+
+filename = 'password.txt'
+# master password will be used for encryption
+master_pwd = input("What is the master password? ")
+key = load_key() + master_pwd.encode()
+fer = Fernet(key)
 
 
 # view existing usernames and passwords
@@ -23,7 +26,7 @@ def view():
         for line in file.readlines():
             data = line.rstrip()
             user, password = data.split('|')
-            print(f'User: {user} | Password: {password}')
+            print(f'User: {user} | Password: {fer.decrypt(password.encode()).decode()}')
 
 
 # Add new username and password
@@ -31,7 +34,7 @@ def add():
     name = input('Account Name: ')
     password = input("Password: ")
     with open(filename, 'a') as file:
-        file.write(f'{name}|{password}\n')
+        file.write(f'{name}|{fer.encrypt(password.encode()).decode()}\n')
 
 
 # Find an account
